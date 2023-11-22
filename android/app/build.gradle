@@ -58,6 +58,26 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+    flavorDimensions "default"
+
+    productFlavors {
+        development {
+            dimension "default"
+            resValue "string", "app_name", "test_project Development"
+            applicationIdSuffix ".dev"
+        }
+        staging {
+            dimension "default"
+            resValue "string", "app_name", "test_project Staging"
+            applicationIdSuffix ".stg"
+        }
+        production {
+            dimension "default"
+            resValue "string", "app_name", "test_project"
+            applicationIdSuffix ""
+        }
+    }
 }
 
 flutter {
@@ -67,3 +87,7 @@ flutter {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
+
+
+
+

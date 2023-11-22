@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:test_project/shared/enum.dart';
 
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final AppEnviroment appEnviroment;
+  const HomePage({super.key, required this.appEnviroment});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -14,9 +16,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-          width: 200,
-          height: 200,
+          // width: 200,
+          // height: 200,
           color: Colors.amber,
+          child: Center(child: Text(widget.appEnviroment.name)),
         ),
         floatingActionButton: FloatingActionButton(onPressed: () {
           executeTestMethod();
