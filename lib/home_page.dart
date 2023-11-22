@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:test_project/shared/enum.dart';
 
@@ -28,8 +29,11 @@ class _HomePageState extends State<HomePage> {
 
 
 
-  void executeTestMethod() {
-
+  void executeTestMethod() async {
+    DocumentReference doc = FirebaseFirestore.instance.doc("project/info");
+    var snap = await doc.get();
+    String title = snap.get("title");
+    print(title);
   }
 
 
